@@ -26,3 +26,9 @@ module "keyvault" {
     source = "../../Modules/azurerm_keyvalut"
     key_vaults = var.key_vaults
 }
+
+module "storage_account" {
+    depends_on = [ module.resource_group ]
+    source = "../../Modules/azurerm_storage_account"
+    storage_accounts = var.storage_accounts
+}

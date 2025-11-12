@@ -34,19 +34,19 @@ variable "public_ips" {
 
 variable "vms" {
   type = map(object({
-    subnet_name            = string
-    virtual_network_name   = string
-    resource_group_name    = string
-    nic_name               = string
-    location               = string
-    pip_name               = string
-    vm_name                = string
-    vm_size                = string
+    subnet_name          = string
+    virtual_network_name = string
+    resource_group_name  = string
+    nic_name             = string
+    location             = string
+    pip_name             = string
+    vm_name              = string
+    vm_size              = string
     # admin_username         = string
     # admin_password         = string
-    os_disk = map(string)
+    os_disk                = map(string)
     source_image_reference = map(string)
-    kv_name = string
+    kv_name                = string
 
   }))
 }
@@ -57,5 +57,16 @@ variable "key_vaults" {
     kv_name             = string
     location            = string
     resource_group_name = string
+  }))
+}
+
+variable "storage_accounts" {
+  type = map(object({
+    stg_name                 = string
+    resource_group_name      = string
+    location                 = string
+    account_tier             = string
+    account_replication_type = string
+    tags                     = map(string)
   }))
 }
